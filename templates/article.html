@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="article_page">
+    <h2>{{title}}</h2>
+    <p>Author: {{author}} <span style="float: right">Source: <a href="{{url}}">{{source}}</a></span></p>
+    <p>Published: {{publishedAt}}</p>
+    <h3>Description:</h3>
+    <p style="margin-bottom: 10px;">{{description}}</p>
+    <img src="{{urlToImage}}">
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    console.log(decodeURI(window.location.pathname))
+</script>
+{% endblock script %}

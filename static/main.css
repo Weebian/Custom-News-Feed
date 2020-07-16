@@ -1,0 +1,121 @@
+.article{
+    border: 1px solid #d6d6de;
+    height: 100%;
+    width: 100%;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+.article_list{
+    scroll-behavior: smooth;
+    height: 215px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.article_button{
+    padding: 0;
+    position:relative;
+    overflow: hidden;
+    height: 185px;
+    width: 185px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.article_button:hover{
+    cursor: pointer;
+}
+.article_button:hover > div{
+    -moz-transform: scale(1.5,1.5);
+    -webkit-transform: scale(1.5,1.5);
+    transform: scale(1.5,1.5); 
+}
+.article_button p{
+    position:absolute;
+    white-space:pre-wrap;
+    overflow:hidden;
+    background-color:rgba(0,0,0,0.6);
+    color:#d6d6de;
+    padding: 10px;
+    opacity:0;
+    content:attr(data-text);
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition:0.25s;
+    height: 100%;
+    margin: 0;
+}
+.article_button:hover p{
+    opacity:1;
+    top:0;
+    font-size: 14px;
+}
+.article_page{
+    margin: 15px;
+    display: block;
+    background-color: #333333;
+    padding: 15px;
+    color: #d6d6de;
+}
+.article_page a{
+    color: #E5C454;
+}
+.article_page a:hover{
+    color: #c7962b;
+}
+.article_page h3{
+    margin-bottom: 10px;
+    color: #E57254;
+}
+.article_page p{
+    margin: 0;
+}
+.article_page img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+body{
+    background-color: #656565;
+    margin: 0px;
+}
+.category_block{
+    background-color: #333333;
+    padding: 15px 10px 15px 20px;
+    margin: 10px;
+    display: flow-root;
+}
+.header{
+    background-color: #333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h1{
+    color: #46bcde;
+    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 1px solid #46bcde;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h2{
+    color: #52d273;
+    padding-right: 10px;
+    display: block;
+    margin-top: 0;
+    border-bottom: 1px solid #d6d6de;
+    padding-bottom: 10px;
+}
+h2 span{
+    float: right;
+}

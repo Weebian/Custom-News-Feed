@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="education" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, private" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <!--Title-->
+    <title>
+        {{ title }}
+    </title>
+</head>
+<body>
+    <div class="header">
+        <h1>News Feed</h1>
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+<!--JS-->
+{% block script %}
+{% endblock script %}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!--Custom js-->
+<script src="{{ url_for('static', filename='main.js') }}" type="text/javascript"></script>
+</html>

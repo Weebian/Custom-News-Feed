@@ -1,0 +1,47 @@
+{% extends "template.html" %}
+{% block content %}
+
+{% for category in categories %}
+<div class="category_block">
+    <h2>{{category["name"]}}<span>Status: {{category["status"]}}</span></h2>
+    <div class="article_list">
+        {% for article in category['articles'] %}
+        <button id="{{category['name']}}_{{loop.index}}" class="article_button" onclick="open_article(this.id)">
+            <div class="article" style="background-image: url({% if article['urlToImage'] != '' and  article['urlToImage'] != None %}{{article['urlToImage']}}{% else %}{{category['default_image_url']}}{% endif %});">
+            </div>
+            <p>{{article['title']}} from {{article['source']['name']}}</p>
+        </button>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
+{% block script %}
+<script>
+//Obtain data
+var articles = {{categories | tojson}}
+var categories = []
+for (var key in articles){
+    categories.push(articles[key]["name"]);
+}
+
+//Function to open article
+function open_article(article_id){
+    var article_data = {};
+    var ids = article_id.split("_");
+    ids[1] -= 1;
+    for (var key in articles[categories.indexOf(ids[0])]["articles"][parseInt(ids[1])]){
+        if(key == 'source'){
+            article_data[key] = articles[categories.indexOf(ids[0])]["articles"][parseInt(ids[1])][key]['name']
+        }
+        else{
+            article_data[key] = articles[categories.indexOf(ids[0])]["articles"][parseInt(ids[1])][key];
+        }
+    }
+    
+    var url = new URL(window.location + 'article')
+    url.search = new URLSearchParams(article_data);
+    window.open(url, target="_blank");
+}
+</script>
+{% endblock script %}
